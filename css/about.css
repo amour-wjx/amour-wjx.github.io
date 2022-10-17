@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.box{
+    margin:260px auto;
+}
+body{
+    font-size: 32px;
+    font-family: "微软雅黑";
+    color:#3c3c3c;
+    background-image: url("1.jpg");
+}
