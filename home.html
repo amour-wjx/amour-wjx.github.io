@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport"
+          content = "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv = "X-UA-Compatible" content = "ie=Edge">
+    <title>My Blog</title>
+    <script src="js/vendor/jquery-1.10.2.min.js"></script>
+    <style type="text/css"></style>
+    <link rel="stylesheet" href="css/home.css">
+    <script src = "js/vendor/jquery-1.10.2.min.js"
+            integrity = "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin = "anonymous">
+    </script>
+    <script >
+        $(function () {
+            //隐藏所有子标题
+            $(".nav-menu").each(function () {
+                $(this).children(".nav-content").hide();
+            });
+            //给菜单项中的所有主标题绑定事件
+            $(".nav-title").each(function () {
+                //获取点击当前标签下所有子标签
+                var navConEle = $(this).parents(".nav-menu").children(".nav-content");
+
+                //绑定点击事件,判断navConEle的display这个属性是否为none,时none的话时隐藏状态
+                $(this).click(function(){
+                    if (navConEle.css("display") != "none") {
+                        //隐藏,传参数自带动画,单位为毫秒
+                        navConEle.hide(300);
+                    } else {
+                        //显示,传参数自带动画,单位为毫秒
+                        $(".nav-menu").each(function () {
+                            $(this).children(".nav-content").hide(300);
+                        });
+                        navConEle.show(300);
+                    }
+                });
+            });
+
+            $(".nav-content>a").each(function () {
+                $(this).click(function () {
+                    $(".content-right").html($(this).html());
+                });
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div class = "content">
+    <!--左侧导航栏-->
+    <div class = "content-left">
+        <div class = "left-title">
+            <a href = "3288270459@qq.com">cxl</a>
+        </div>
+        <!--水平线-->
+        <div class = "seg"></div>
+
+        <!--菜单栏导航-->
+        <div class = "nav">
+            <!--每一个菜单栏项-->
+            <div class = "nav-menu">
+                <!--主标题-->
+                <div class = "nav-title">主页</div>
+                <!--子标题-->
+                <div class = "nav-content">
+                    <a href = "sy.html" target="menuFrame">我的</a>
+
+                </div>
+            </div>
+            <!--每一个菜单栏项-->
+            <div class = "nav-menu">
+                <!--主标题-->
+                <div class = "nav-title">日志</div>
+                <!--子标题-->
+                <div class = "nav-content">
+
+                    <a href = "liantian.html" target="menuFrame">聊天</a>
+
+                    <a href = "riji.html" target="menuFrame">日记</a>
+
+                    <a href = "zp.html" target="menuFrame">作品</a>
+                </div>
+            </div>
+            <!--每一个菜单栏项-->
+            <div class = "nav-menu">
+                <!--主标题-->
+                <div class = "nav-title">外链</div>
+                <!--子标题-->
+                <div class = "nav-content">
+
+                    <a href = "lianjie.html" target="menuFrame">链接</a>
+
+                    <a href = "https://github.com/cxl258/cxl258">GitHub</a>
+
+                    <a href="https://gitee.com/cxiaolei" >gitee</a>
+
+                    <a href = "api.html" target="menuFrame">api</a>
+                </div>
+            </div>
+            <div class = "nav-menu">
+                <!--主标题-->
+                <div class = "nav-title">关于</div>
+                <!--子标题-->
+                <div class = "nav-content">
+                    <a href ="about.html" target="menuFrame">about</a>
+                </div>
+            </div>
+        </div>
+
+        <!--水平线-->
+        <div class = "seg"></div>
+<!-- 备注 左下角-->
+    </div>
+
+    <!--右侧内容区-->
+    <div id="content-right" >
+     <!--  css布局一定是#开头-->
+        <iframe id="menuFrame" name="menuFrame" src="riji.html" style="overflow:visible;" scrolling="yes"
+                frameborder="no"   width="100%" height="100%" >
+        </iframe>
+
+    </div>
+</div>
+</body>
+</html>
